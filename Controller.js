@@ -12,10 +12,26 @@ app.use(bodyParser.json());
 let user=models.User;
 let tracking=models.Tracking;
 let product=models.Product;
- 
+
+app.post('/login',async (req,res)=>{
+  let response= await  user.findOne({
+        where:{name:req.body.name, password:req.body.password}
+    });
+    //console.log(response)
+    
+    if(response === null){
+        res.send(JSON.stringify ( value="error"));
+    }else{
+        res.send(response);
+       // console.log(response)
+    }
+    
+});
+
+ /*
 app.post('/Login', async (req,res)=>{
     let response=await user.findOne({
-        whare:{name:req.body.name, password: req.body.password}
+        whare:{name: req.body.name, password: req.body.password}
         
     });
     if(response === null){
@@ -25,7 +41,7 @@ app.post('/Login', async (req,res)=>{
     }
     
 });
-
+*/
 let port=process.env.PORT || 3000;
 app.listen(port,(req,res)=>{
     console.log('Servidor Rodando');

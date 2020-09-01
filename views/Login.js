@@ -13,7 +13,7 @@ export default function Login (){
 //Envio do Formulario de login
     async function sendForm()
     { 
-        let response=await fetch(input='http://192.168.0.121:3000/Login', init={
+        let response=await fetch(input='http://192.168.0.121:3000/login', init={
             method:'POST',
             headers: {
                 Accept: 'application/json',
@@ -26,7 +26,7 @@ export default function Login (){
         });
         let json=await response.json();
         console.log(json);
-    };    
+    }   
     
     
     
