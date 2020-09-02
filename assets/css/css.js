@@ -7,6 +7,9 @@ const css = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    containerTop:{
+      justifyContent:'flex-start'
+    },
     container2: {
       flex: 1,
       flexDirection:"row",
@@ -22,7 +25,7 @@ const css = StyleSheet.create({
       marginRight: 40 
     },
     darkbg:{
-      backgroundColor:"#333"
+      backgroundColor:"#757575"
     },
     loginAlert:(text='none')=>({
       fontWeight:"bold",
@@ -55,6 +58,34 @@ const css = StyleSheet.create({
     },
     loginLogomarca:{
       marginBottom:10
+    },
+    areaTab:{
+      backgroundColor:'#333',
+      fontSize: 20,
+      fontWeight:'bold',
+      color:'#333'
+    },
+    areaMenu:{
+      flexDirection:'row',
+      paddingTop: 40,
+      paddingBottom:10,
+      width: '100%',
+      backgroundColor:'#111',
+      alignItems:'center',
+      justifyContent:'center'
+    },
+    buttonHomeArea:{
+      textAlign:'left'
+    },
+    areaTitle:{
+      width: '80%',
+      fontWeight:'bold',
+      fontSize:20,
+      color:'#fff',
+      textAlign:'center'
+    },
+    buttonLogoutArea:{
+      textAlign:'right'
     }
 
   });
