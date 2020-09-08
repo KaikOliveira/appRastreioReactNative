@@ -4,6 +4,7 @@ import { css } from '../assets/css/css';
 //import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
+import config from '../config/config.json';
 
 export default function Login ({navigation}){
    
@@ -59,7 +60,7 @@ async function biometric(){
 //Envio do Formulario de login
     async function sendForm()
     { 
-        let response=await fetch(input='http://192.168.0.121:3000/login', init={
+        let response=await fetch(input=`${config.urlRoot}login`, init={
             method:'POST',
             headers: {
                 Accept: 'application/json',

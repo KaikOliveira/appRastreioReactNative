@@ -28,7 +28,34 @@ app.post('/login',async (req,res)=>{
     
 });
 
- /*
+app.post('/verifyPass',async (req,res)=>{
+    let response=await user.findOne({
+        where:{id:req.body.id, password: req.body.senhaAntiga}
+    });
+    if(response === null){
+        res.send(JSON.stringify(value='Senha antiga errada'));
+    }else {
+        if (req.body.novaSenha === req.body.confNovaSenha){
+            response.password=req.body.novaSenha;
+            response.save();
+            res.send(JSON.stringify(value='Senha Atualizada com sucesso'));
+        }else{
+            res.send(JSON.stringify(value='Nova senha e confirmação errada'));
+        }
+    }
+});
+
+ 
+let port=process.env.PORT || 3000;
+app.listen(port,(req,res)=>{
+    console.log('Servidor Rodando');
+});
+
+
+
+
+
+/*
 app.post('/Login', async (req,res)=>{
     let response=await user.findOne({
         whare:{name: req.body.name, password: req.body.password}
@@ -42,10 +69,3 @@ app.post('/Login', async (req,res)=>{
     
 });
 */
-let port=process.env.PORT || 3000;
-app.listen(port,(req,res)=>{
-    console.log('Servidor Rodando');
-});
-
-
-
