@@ -45,6 +45,23 @@ app.post('/verifyPass',async (req,res)=>{
     }
 });
 
+//CREATE do Product 
+app.post('/create', async (req,res) => {
+    //console.log(req.body);
+    let trackingId = '';
+    await tracking.create({
+        userId: req.body.userId,
+        code: req.body.code,
+        local: req.body.local
+    }).then((response) => {
+        trackingId += response.id;
+    });
+    await product.create({
+        trackingId: trackingId,
+        name: req.body.product
+    });
+});
+
  
 let port=process.env.PORT || 3000;
 app.listen(port,(req,res)=>{
