@@ -32,9 +32,9 @@ export default function Cadastro ({navigation}){
     //Gerar cod random unico --- CODE DO PRODUCT
     async function randomCode(){
         let result = '';
-        let length=10;
+        let length=7;
         let chars='0123456789ABCDF';
-        for (let i = length; i > 0 ; --i) result += chars [Math.floor(x=Math.random)]
+        for (let i = length; i > 0 ; --i) result += chars [Math.floor(x=Math.random() * chars.length )]; 
         setCode(result);
     }
     //Envio do Formulário
