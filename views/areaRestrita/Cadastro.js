@@ -20,7 +20,8 @@ export default function Cadastro ({navigation}){
 
     useEffect(effect= () => {
         randomCode();
-    }, inputs=[]);
+        setProduct(value=null);
+    }, inputs=[response]);
 
     //Pegar o id do user -- ID USER PRO CADASTRO DO Product
     async function getUser(){
@@ -61,7 +62,7 @@ export default function Cadastro ({navigation}){
             <MenuAreaRestrita title='Cadastro' navigation={navigation} />
 
             {response && (
-                <View>
+                <View >
                     <Image source={{uri:response, height:180, width:180}} />
                     <Button title='Compartilhar' />
                 </View>
@@ -77,6 +78,7 @@ export default function Cadastro ({navigation}){
                 <TextInput 
                     placeholder="Nome do Produto:"
                     onChangeText={text=>setProduct(text)}
+                    value={product}
                 />
             </View>
 
