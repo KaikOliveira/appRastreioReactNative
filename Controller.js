@@ -9,6 +9,7 @@ const app=express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('assets'));
 
 let user=models.User;
 let tracking=models.Tracking;
@@ -18,6 +19,7 @@ app.post('/login',async (req,res)=>{
   let response= await  user.findOne({
         where:{name:req.body.name, password:req.body.password}
     });
+    console.log('entrou')
     //console.log(response)
     
     if(response === null){

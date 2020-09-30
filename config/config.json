@@ -20,6 +20,6 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "urlRoot": "http://192.168.0.121:3000/",
+  "urlRoot": "http://192.168.0.117:3000/",
   "origin": "Rua. José Bizinotti, 30 - Quata/SP"
 }
