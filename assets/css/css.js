@@ -86,7 +86,18 @@ const css = StyleSheet.create({
     },
     buttonLogoutArea:{
       textAlign:'right'
-    }
+    },
+    qr__code:(display='flex') => ({
+      width:'100%',
+      height:'100%',
+      backgroundColor:'#000',
+      justifyContent:'center',
+      display: display
+    }),
+    qr__form:(display='none') => ({
+      width:'100%',
+      display: display
+    })
 
   });
   
