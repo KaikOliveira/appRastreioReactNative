@@ -72,15 +72,30 @@ app.post('/create', async (req,res) => {
         res.send(JSON.stringify(url));
     })
 });
+
+app.post('/searchProduct', async(req,res)=>{
+    let response=await tracking.findOne({
+        include:[{model:product}],
+        where: {code: req.body.code},
+       
+    });
+    console.log(response);
+    console.log('response');
+    res.send(JSON.stringify(response));
+    
+});
+
 //Pegar os dados do Produto 
-app.post('/searchProduct', async (req,res) => {
+/*
+app.post('/searchproduct', async (req,res) => {
     let response=await tracking.findOne({
         include:[{model:product}],
         where: {code: req.body.code}
     });
     console.log(response);
-})
- 
+    res.send(JSON.stringify(response));
+});
+ */
 let port=process.env.PORT || 3000;
 app.listen(port,(req,res)=>{
     console.log('Servidor Rodando');

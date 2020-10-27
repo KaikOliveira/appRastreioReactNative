@@ -14,7 +14,7 @@ module.exports = {
       trackingId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'trackings',
+          model: 'trackings',
           key:'id'
         },
         onUpdate:'cascade',

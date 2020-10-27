@@ -33,11 +33,30 @@ export default function Edicao ({navigation}){
         setDisplayQR(value='none');
         setDisplayForm(value='flex');
         setCode(data);
+        //searchProduct(data);
         await searchProduto(data);
     }
 
+    async function searchProduto(data){
+    let response=await fetch(config.urlRoot+'searchProduct',{
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            code: data
+        })
+    });
+    let json=await response.json();
+    setProduct(json.Products[0].name);
+    console.log(response);
+}
+
+/*
+    //Buscar no bd
     async function searchProduto(codigo) {
-        let response=await fetch(input=config.urlRoot+'searchProduct',init={
+        let response=await fetch(input=config.urlRoot+'searchproduct',init={
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -50,7 +69,7 @@ export default function Edicao ({navigation}){
             })
         });
     }
-
+*/
 
     //Consulta no bd 
     /*
